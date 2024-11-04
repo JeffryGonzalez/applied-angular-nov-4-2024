@@ -7,7 +7,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterOutlet, RouterLink],
     template: `
-        <p>Demos Go Here And This is Rad</p>
+        <p>Demos Go Here</p>
         <div>
             <a class="link link-primary" routerLink="change-detection">Change Detection</a>
         </div>
