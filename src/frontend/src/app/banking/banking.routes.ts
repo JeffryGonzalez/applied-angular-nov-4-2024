@@ -1,10 +1,11 @@
-import { Routes } from '@angular/router';
+import { CanActivateFn, Router, Routes } from '@angular/router';
 import { BankingComponent } from './banking.component';
 import { DefaultComponent } from './pages/default.component';
 import { DepositComponent } from './pages/deposit.component';
 import { StatementComponent } from './pages/statement.component';
 import { WithdrawComponent } from './pages/withdraw.component';
 import { BankingStore } from './services/banking.store';
+import { inject } from '@angular/core';
 
 export const BANKING_ROUTES: Routes = [
   {
@@ -23,6 +24,7 @@ export const BANKING_ROUTES: Routes = [
       {
         path: 'withdraw',
         component: WithdrawComponent,
+        canActivate: [withdrawGuard()],
       },
       {
         path: 'statement',
@@ -35,3 +37,14 @@ export const BANKING_ROUTES: Routes = [
     ],
   },
 ];
+
+function withdrawGuard(): CanActivateFn {
+  return () => {
+    const store = inject(BankingStore);
+    const router = inject(Router);
+    return (
+      store.withdrawalAvailable() ||
+      router.createUrlTree(['banking', 'dashboard'])
+    );
+  };
+}
