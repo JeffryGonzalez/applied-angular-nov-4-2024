@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy,  input, Output, EventEmitter, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 
 @Component({
