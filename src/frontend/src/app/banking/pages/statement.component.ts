@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BankingStore } from '../services/banking.store';
+import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
+  imports: [DatePipe, CurrencyPipe, TitleCasePipe],
   template: ` <div class="overflow-x-auto">
     <table class="table table-zebra">
       <!-- head -->
@@ -18,19 +19,18 @@ import { BankingStore } from '../services/banking.store';
       </thead>
       <tbody>
         <!-- row 1 -->
-        <tr>
-          <th>2024-11-01 blah</th>
-          <td>Deposit</td>
-          <td>200.00</td>
-          <td>1200.00</td>
-        </tr>
+
+        @for (record of store.entities(); track record.id) {
+          <tr>
+            <th>{{ record.date | date: 'short' }}</th>
+            <td>{{ record.kind | titlecase }}</td>
+            <td>{{ record.amount | currency }}</td>
+            <td>{{ record.newBalance | currency }}</td>
+          </tr>
+        } @empty {
+          <p>You have no transactions!</p>
+        }
         <!-- row 2 -->
-        <tr>
-          <th>2024-11-02 blah</th>
-          <td>Withdrawal</td>
-          <td>100.00</td>
-          <td>1100.00</td>
-        </tr>
       </tbody>
     </table>
   </div>`,
@@ -38,11 +38,9 @@ import { BankingStore } from '../services/banking.store';
 })
 export class StatementComponent {
   // private bankingService:BankingService;
-
   // constructor(bankingService:BankingService) {
   //     this.bankingService = bankingService
   // }
-
-  // constructor(private bankingService:BankingService) {}
-  private bankingService = inject(BankingStore);
+  //constructor(private bankingService:BankingStore) {}
+  store = inject(BankingStore);
 }

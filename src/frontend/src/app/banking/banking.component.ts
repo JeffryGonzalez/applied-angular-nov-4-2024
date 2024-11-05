@@ -21,4 +21,8 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class BankingComponent {
   store = inject(BankingStore);
+
+  constructor() {
+    // this.store.load();
+  }
 }

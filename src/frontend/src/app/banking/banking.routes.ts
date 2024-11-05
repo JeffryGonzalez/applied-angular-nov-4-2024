@@ -6,12 +6,13 @@ import { StatementComponent } from './pages/statement.component';
 import { WithdrawComponent } from './pages/withdraw.component';
 import { BankingStore } from './services/banking.store';
 import { inject } from '@angular/core';
+import { BankingService } from './services/banking.service';
 
 export const BANKING_ROUTES: Routes = [
   {
     path: '',
     component: BankingComponent,
-    providers: [BankingStore],
+    providers: [BankingStore, BankingService],
     children: [
       {
         path: 'dashboard',
