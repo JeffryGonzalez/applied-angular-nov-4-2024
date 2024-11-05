@@ -1,4 +1,9 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  inject,
+  effect,
+} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -41,6 +46,12 @@ import { CurrencyPipe } from '@angular/common';
             @if (amountControl.hasError('min')) {
               <p>You need to withdrawal at least a penny</p>
             }
+            @if (amountControl.hasError('max')) {
+              <p>
+                We don't allow overdraft, you can withdraw only up to
+                {{ bankingStore.balance() | currency }}
+              </p>
+            }
           </div>
         }
       </label>
@@ -53,10 +64,18 @@ export class WithdrawComponent {
   bankingStore = inject(BankingStore);
 
   form = new FormGroup({
-    amount: new FormControl<number | null>(null, {
-      validators: [Validators.required, Validators.min(0.01)],
-    }),
+    amount: new FormControl<number | null>(null, {}),
   });
+
+  constructor() {
+    effect(() => {
+      this.form.controls.amount.setValidators([
+        Validators.required,
+        Validators.min(0.01),
+        Validators.max(this.bankingStore.balance()),
+      ]);
+    });
+  }
 
   doDeposit(focusme: HTMLInputElement) {
     this.form.markAllAsTouched();
