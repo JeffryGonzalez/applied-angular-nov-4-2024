@@ -1,8 +1,8 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
-interface BankState {
+type BankState = {
   balance: number;
-}
+};
 
 const initialState: BankState = {
   balance: 0,
@@ -12,6 +12,8 @@ export const BankingStore = signalStore(
   withMethods((store) => {
     // injection context
     return {
+      withdraw: (amount: number) =>
+        patchState(store, { balance: store.balance() - amount }),
       deposit: (amount: number) =>
         patchState(store, { balance: store.balance() + amount }),
     };
