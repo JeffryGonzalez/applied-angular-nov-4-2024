@@ -8,11 +8,17 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TransactionComponent, CurrencyPipe, ReactiveFormsModule],
+  imports: [
+    TransactionComponent,
+    CurrencyPipe,
+    ReactiveFormsModule,
+    RouterLink,
+  ],
   template: `
     <p>Making Deposits</p>
     <p>Your Balance is {{ bankingStore.balance() | currency }}</p>
@@ -46,6 +52,7 @@ import {
         }
       </label>
       <button type="submit" class="btn btn-primary">Make Deposit</button>
+      <a routerLink=".." class="btn btn-warning">Cancel</a>
     </form>
   `,
   styles: ``,
