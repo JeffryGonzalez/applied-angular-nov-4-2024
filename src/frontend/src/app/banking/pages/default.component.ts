@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+} from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { BankingStore } from '../services/banking.store';
 
@@ -7,21 +12,34 @@ import { BankingStore } from '../services/banking.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterOutlet],
   template: `
-    <div class="card bg-base-100 w-96 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">Your Account</h2>
-        <p>You Currently have a Balance of {{ service.balance() }}</p>
-      </div>
-    </div>
-
     <div>
-      <a [routerLink]="['..', 'deposit']" class="btn btn-primary">Deposit</a>
-      <a routerLink="../withdraw" class="btn btn-primary">Withdraw</a>
-      <a routerLink="../statement" class="btn btn-primary">Statement</a>
+      @if (store.withdrawalAvailable()) {
+        <a [routerLink]="['..', 'deposit']" class="btn btn-primary"
+          >Deposit Some Money Into My Account</a
+        >
+        <a routerLink="../withdraw" class="btn btn-primary"
+          >Withdraw Money From My Account</a
+        >
+      } @else {
+        <p>
+          It looks like you have an empty account! Why don't you make a deposit
+          to get started!
+        </p>
+
+        <a [routerLink]="['..', 'deposit']" class="btn btn-primary"
+          >Deposit Some Money Into My Account</a
+        >
+      }
+
+      <div>
+        <a routerLink="../statement" class="btn btn-primary"
+          >See My Current Statement</a
+        >
+      </div>
     </div>
   `,
   styles: ``,
 })
 export class DefaultComponent {
-  service = inject(BankingStore);
+  store = inject(BankingStore);
 }

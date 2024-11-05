@@ -1,4 +1,11 @@
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
+import { computed } from '@angular/core';
+import {
+  patchState,
+  signalStore,
+  withComputed,
+  withMethods,
+  withState,
+} from '@ngrx/signals';
 
 type BankState = {
   balance: number;
@@ -16,6 +23,11 @@ export const BankingStore = signalStore(
         patchState(store, { balance: store.balance() - amount }),
       deposit: (amount: number) =>
         patchState(store, { balance: store.balance() + amount }),
+    };
+  }),
+  withComputed((store) => {
+    return {
+      withdrawalAvailable: computed(() => store.balance() > 0),
     };
   }),
 );
