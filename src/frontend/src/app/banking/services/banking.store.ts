@@ -14,6 +14,8 @@ export const BankingStore = signalStore(
     return {
       deposit: (amount: number) =>
         patchState(store, { balance: store.balance() + amount }),
+      withdraw: (amount: number) =>
+        patchState(store, { balance: store.balance() - amount }),
     };
   }),
 );
