@@ -37,6 +37,7 @@ test.describe('When using the Counter UI', { tag: '@step-3' }, () => {
     incrementButton = await page.getByRole('button', { name: '+' });
     decrementButton = await page.getByRole('button', { name: '-' });
     outputLabel = await page.getByTestId('current');
+    await page.evaluate(() => window.localStorage.clear());
   });
   test('It should display the expected defaults', async () => {
     await expect(incrementButton).toBeVisible();
@@ -86,6 +87,7 @@ test.describe(
       decrementButton = await page.getByRole('button', { name: '-' });
       outputLabel = await page.getByTestId('current');
       fizzBuzz = await page.getByTestId('fizzBuzz');
+      await page.evaluate(() => window.localStorage.clear());
     });
 
     test('It should display no message when current is zero', async () => {
