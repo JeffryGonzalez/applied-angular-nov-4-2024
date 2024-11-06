@@ -1,6 +1,5 @@
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { BankingService } from '../banking/services/banking.service';
 
