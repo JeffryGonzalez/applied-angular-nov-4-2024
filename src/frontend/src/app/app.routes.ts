@@ -16,6 +16,14 @@ export const routes: Routes = [
   },
   {
     path: 'counter',
+    canMatch: [canMatchFeature('counter-redux')],
+    loadChildren: () =>
+      import('./counter-upgrade/counter-upgrade.routes').then(
+        (r) => r.COUNTER_UPGRADE_ROUTES,
+      ),
+  },
+  {
+    path: 'counter',
     loadChildren: () =>
       import('./counter/counter.routes').then((r) => r.COUNTER_ROUTES),
   },

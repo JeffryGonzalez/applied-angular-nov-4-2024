@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-const features = ['wip'];
+const features = ['wip', 'home-page-content', 'counter-redux'];
 
 const handlers = [
   http.get('/api/features', () => {
