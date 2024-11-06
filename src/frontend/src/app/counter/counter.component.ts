@@ -9,7 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   template: `
     <div data-testid="counter-feature">
       <div class="flex gap-4 p-4">
-        <a class="link" routerLink="ui">Ui</a>
+        <a class="link" routerLink="ui">UI</a>
         <a class="link" routerLink="prefs">Prefs</a>
       </div>
       <router-outlet />
