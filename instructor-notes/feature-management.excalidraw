@@ -1,0 +1,188 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "cf0wNFRfDxl5v-m1ejIQF",
+      "type": "rectangle",
+      "x": 948,
+      "y": 432,
+      "width": 199,
+      "height": 254,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 679136257,
+      "version": 9,
+      "versionNonce": 981643585,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "SmFIGGlUsmw12QsTi6u3b",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1730925143922,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "LsfyBgGge9WtGR9od4nUM",
+      "type": "rectangle",
+      "x": 1029,
+      "y": 549,
+      "width": 98,
+      "height": 105,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 2027813633,
+      "version": 29,
+      "versionNonce": 1692204929,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1730925128142,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "SmFIGGlUsmw12QsTi6u3b",
+      "type": "arrow",
+      "x": 1054,
+      "y": 427,
+      "width": 113,
+      "height": 232,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 232913711,
+      "version": 17,
+      "versionNonce": 1879573857,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1730925143922,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -113,
+          -232
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "cf0wNFRfDxl5v-m1ejIQF",
+        "focus": 0.438733805262455,
+        "gap": 5
+      },
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "P0VsvJxsrakrdyeIqWo0j",
+      "type": "ellipse",
+      "x": 861,
+      "y": 86,
+      "width": 125,
+      "height": 102,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1551687969,
+      "version": 16,
+      "versionNonce": 316116801,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1730925147892,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "cRFkERhlRl9z7phRe8Qx_",
+      "type": "text",
+      "x": 1014,
+      "y": 129,
+      "width": 262.6798095703125,
+      "height": 25,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1229584783,
+      "version": 27,
+      "versionNonce": 457675681,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1730925172598,
+      "link": null,
+      "locked": false,
+      "text": "Flagr (open source Golang)",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 18,
+      "containerId": null,
+      "originalText": "Flagr (open source Golang)",
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
