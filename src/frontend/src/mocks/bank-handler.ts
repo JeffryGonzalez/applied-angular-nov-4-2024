@@ -42,7 +42,7 @@ const initialState: ApiResponseItem[] = [
 
 const handlers = [
   http.get(
-    'http://fake-api.bankohypertheory.com/user/statements/:year/:month',
+    'http://xfake-api.bankohypertheory.com/user/statements/:year/:month',
     async ({ params }) => {
       await delay(3000);
       const openingBalance = 118.23;

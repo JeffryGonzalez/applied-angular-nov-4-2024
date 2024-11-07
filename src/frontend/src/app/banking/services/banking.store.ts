@@ -14,6 +14,7 @@ import { BankingService } from './banking.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
+import { setError, setFulfilled, setPending, withRequestStatus } from '@shared';
 
 type BankState = {
   openingBalance: number;
@@ -28,19 +29,21 @@ export const BankingStore = signalStore(
   withDevtools('banking-store'),
   withState<BankState>(initialState),
   withEntities<BankTransaction>(),
+  withRequestStatus(),
   withMethods((store) => {
     const service = inject(BankingService);
     return {
       _load: rxMethod<void>(
         pipe(
+          tap(() => patchState(store, setPending())),
           switchMap(() =>
             service.loadCurrentStatement().pipe(
               tapResponse({
                 next(value) {
-                  patchState(store, setEntities(value));
+                  patchState(store, setEntities(value), setFulfilled());
                 },
-                error(error) {
-                  console.log(error);
+                error() {
+                  patchState(store, setError('Could not get the transactions'));
                 },
               }),
             ),
