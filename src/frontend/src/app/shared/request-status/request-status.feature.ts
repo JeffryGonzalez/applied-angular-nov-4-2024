@@ -3,8 +3,10 @@ import { signalStoreFeature, withComputed, withState } from '@ngrx/signals';
 
 export type RequestStatus =
   | 'idle'
-  | 'pending'
-  | 'fulfilled'
+  | 'pending' // I'm doing a non-safe operation (post, put, delete)
+  | 'loading' // I'm doing the initial load of the data
+  | 'fulfilled' // Either the pending or the loading is done
+  | 'fetching' // I'm refreshing the data.
   | { error: string };
 export type RequestStatusState = { requestStatus: RequestStatus };
 

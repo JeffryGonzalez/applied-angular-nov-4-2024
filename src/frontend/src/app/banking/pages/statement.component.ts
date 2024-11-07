@@ -24,7 +24,12 @@ import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
           <tr>
             <th>{{ record.date | date: 'short' }}</th>
             <td>{{ record.kind | titlecase }}</td>
-            <td>{{ record.amount | currency }}</td>
+            <td>
+              {{ record.amount | currency }}
+              @if (record.isPending) {
+                <span>(pending!)</span>
+              }
+            </td>
             <td>{{ record.newBalance | currency }}</td>
           </tr>
         } @empty {

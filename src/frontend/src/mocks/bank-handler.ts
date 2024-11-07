@@ -42,24 +42,30 @@ const initialState: ApiResponseItem[] = [
 
 const handlers = [
   http.get(
-    'http://xfake-api.bankohypertheory.com/user/statements/:year/:month',
+    'http://fake-api.bankohypertheory.com/user/statements/:year/:month',
     async ({ params }) => {
-      await delay(3000);
+      await delay(1000);
       const openingBalance = 118.23;
+
       const response = {
         accountNumber: '1234567890',
         statementDate: `${params['year']}-${params['month']}`,
         // balance: openingBalance,
+        version: 1,
         openingBalance,
         transactions: initialState,
       };
+      // return HttpResponse.json({
+      //   openingBalance: 0,
+      //   transactions: [],
+      // });
       return HttpResponse.json(response);
     },
   ),
   http.post(
     'http://fake-api.bankohypertheory.com/user/deposits',
     async ({ request }) => {
-      await delay(5000);
+      await delay(8000);
       const body = (await request.json()) as unknown as { amount: number };
 
       const newTransaction = {

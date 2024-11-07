@@ -9,10 +9,10 @@ export type TimeStamp = number;
 // };
 
 // export type Withdrawal = {};
-
+export type TransactionType = 'withdrawal' | 'deposit';
 export type BankTransaction = {
   id: string;
-  kind: 'withdrawal' | 'deposit';
+  kind: TransactionType;
   date: TimeStamp;
   amount: number;
   newBalance: number;
@@ -26,6 +26,10 @@ export type BankStatementApiResponse = {
 export type BankStateApiTransactionResponse = {
   ibnTxLsn: string;
   amount: number;
-  type: 'deposit' | 'withdrawal';
+  type: TransactionType;
   postedOn: string;
+};
+
+export type BankTransactionListModel = BankTransaction & {
+  isPending: boolean;
 };
